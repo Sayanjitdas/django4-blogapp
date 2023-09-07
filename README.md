@@ -1,7 +1,6 @@
-### BOILER PLATE CODE
+# BOILER PLATE CODE
 
-# Some recommendation
----
+### Some recommendation
 - Use Linux based system Ubuntu is preferred
 - Use `vscode` as IDE
 - Install extensions
@@ -21,3 +20,7 @@
     `poetry add <package name>`
 ***don't directly use pip cause we are using poetry as environment management tool***
 ***environment should be active***
+
+- on git commit pre-commit will run automatically, pre-commit may have failed
+checks and it will fix it but you have to git add and commit again just use the
+similar commit message.
