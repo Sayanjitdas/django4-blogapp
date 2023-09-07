@@ -12,12 +12,12 @@
     - `black`
     - `isort`
 
-- To install and build the environment run the following\n
-    `make install`\n
+- To install and build the environment run the following<br>
+    `make install`<br>
 ***make should be installed in your system***
 
-- To install any new libraries run the following\n
-    `poetry add <package name>`\n
+- To install any new libraries run the following<br>
+    `poetry add <package name>`<br>
 ***don't directly use pip cause we are using poetry as environment management tool***
 ***environment should be active***
 
