@@ -30,8 +30,6 @@ install:
 	@echo "\tsource .venv/bin/activate"
 	@echo ""
 
-
-
 check:
 	@echo "checking code formatting and imports"
 	black -v .

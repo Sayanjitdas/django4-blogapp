@@ -21,6 +21,12 @@ build-backend = "poetry.core.masonry.api"
 [tool.black]
 line-length = 79
 target-version = ["py38","py39","py310"]
+extend-exclude = """
+/(
+  | templates/*
+  | media/*
+) /
+"""
 
 [tool.isort]
 py_version = 38
@@ -29,6 +35,10 @@ line_length = 79
 multi_line_output = 1
 use_parentheses = true
 include_trailing_comma = true
+skip_glob = [
+    "media/",
+    "template/"
+]
 
 [tool.pyright]
 python = "3.8"  # Specify your desired Python version
