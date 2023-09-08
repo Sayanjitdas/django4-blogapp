@@ -23,4 +23,4 @@
 
 - on git commit pre-commit will run automatically, pre-commit may have failed
 checks and it will fix it but you have to git add and commit again just use the
-similar commit message.
+similar commit message..
