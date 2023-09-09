@@ -3,7 +3,7 @@
 
 
 # install and build development environment
-PYTHON_VER := "3.8"
+PYTHON_VER := "3.10"
 SYSTEM_VER := $(shell python --version | grep $(PYTHON_VER))
 
 install:
@@ -34,3 +34,4 @@ check:
 	@echo "checking code formatting and imports"
 	black -v .
 	isort .
+	mypy .
