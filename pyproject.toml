@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "boiler-plate django.."
+name = "django4-blogapp"
 version = "0.1.0"
-description = "testing boilerplate"
-authors = ["Your Name <you@example.com>"]
+description = "This is a simple blogapp written with django4"
+authors = ["sayanjit <sayanjitgit@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
