@@ -13,6 +13,7 @@ python = "^3.8"
 isort = "^5.12.0"
 black = "^23.7.0"
 pre-commit = "^3.4.0"
+mypy = "^1.5.1"
 
 [build-system]
 requires = ["poetry-core"]
@@ -39,6 +40,10 @@ skip_glob = [
     "media/",
     "template/"
 ]
+
+[tool.mypy]
+ignore_missing_imports = true
+follow_imports = "normal"
 
 [tool.pyright]
 python = "3.8"  # Specify your desired Python version
