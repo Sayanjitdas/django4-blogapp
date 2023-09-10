@@ -27,6 +27,7 @@ extend-exclude = """
 /(
   | templates/*
   | media/*
+  | migrations/
 ) /
 """
 
@@ -39,7 +40,8 @@ use_parentheses = true
 include_trailing_comma = true
 skip_glob = [
     "media/",
-    "template/"
+    "template/",
+    "migrations"
 ]
 
 [tool.mypy]
