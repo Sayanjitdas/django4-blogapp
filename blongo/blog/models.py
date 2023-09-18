@@ -9,11 +9,9 @@ from django.utils import timezone
 
 class PublishedManager(models.Manager):
     def get_queryset(self) -> QuerySet:
-        print("getting...")
         return super().get_queryset().filter(status=Post.Status.PUBLISHED)
 
     def create(self, **kwargs: Any) -> Any:
-        print("creating...")
         return super().create(status=Post.Status.PUBLISHED, **kwargs)
 
 
