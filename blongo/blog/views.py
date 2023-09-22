@@ -1,9 +1,10 @@
 from django.core.mail import send_mail
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.shortcuts import get_object_or_404, render
+from django.views.decorators.http import require_POST
 from django.views.generic import ListView, View
 
-from .forms import EmailPostForm
+from .forms import CommentForm, EmailPostForm
 from .models import Post
 
 # def post_list(request):
@@ -30,7 +31,15 @@ def post_detail(request, year, month, day, post):
         publish__day=day,
         status=Post.Status.PUBLISHED,
     )
-    return render(request, "blog/post/detail.html", {"post": post})
+    # List of active comment for this post
+    comments = post.comments.filter(active=True)
+    # form for users to comment
+    form = CommentForm()
+    return render(
+        request,
+        "blog/post/detail.html",
+        {"post": post, "form": form, "comments": comments},
+    )
 
 
 def share_post(request, post_id):
@@ -51,6 +60,27 @@ def share_post(request, post_id):
         request,
         "blog/post/share.html",
         {"post": post, "form": form, "sent": sent},
+    )
+
+
+@require_POST
+def post_comment(request, post_id):
+    post = get_object_or_404(Post, id=post_id, status=Post.Status.PUBLISHED)
+    comment = None
+    # A comment was posted
+    form = CommentForm(data=request.POST)
+    if form.is_valid():
+        # Create a Comment object without saving it to the database
+        comment = form.save(commit=False)
+        # Assign the post to the comment
+        comment.post = post
+        # Save the comment to the database
+        comment.save()
+
+    return render(
+        request,
+        "blog/post/comment.html",
+        {"post": post, "form": form, "comment": comment},
     )
 
 
